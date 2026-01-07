@@ -429,23 +429,23 @@ void checkCameraButtons() {
     }
 
     // Treat the new top/bottom buttons as variants of left/right for look logic.
-    bool leftIn = g_controls.ButtonIn(CarControls::WheelControlType::LookTop) ||
-                  g_controls.ButtonIn(CarControls::WheelControlType::LookLeftTop) ||
+    bool leftIn = g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBlindSpotPeak) ||
+                  g_controls.ButtonIn(CarControls::WheelControlType::LookLeftMirror) ||
                   g_controls.ButtonIn(CarControls::WheelControlType::LookLeft) ||
-                  g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBottom);
+                  g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBlindSpot);
 
-    bool rightIn = g_controls.ButtonIn(CarControls::WheelControlType::LookRightTop) ||
+    bool rightIn = g_controls.ButtonIn(CarControls::WheelControlType::LookRightMirror) ||
                    g_controls.ButtonIn(CarControls::WheelControlType::LookRight) ||
-                   g_controls.ButtonIn(CarControls::WheelControlType::LookRightBottom);
+                   g_controls.ButtonIn(CarControls::WheelControlType::LookRightBlindSpot);
 
-    bool leftJustPressed = g_controls.ButtonIn(CarControls::WheelControlType::LookTop) ||
-                           g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeftTop) ||
+    bool leftJustPressed = g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBlindSpotPeak) ||
+                           g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeftMirror) ||
                            g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeft) ||
-                           g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeftBottom);
+                           g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeftBlindSpot);
 
-    bool rightJustPressed = g_controls.ButtonJustPressed(CarControls::WheelControlType::LookRightTop) ||
+    bool rightJustPressed = g_controls.ButtonJustPressed(CarControls::WheelControlType::LookRightMirror) ||
                             g_controls.ButtonJustPressed(CarControls::WheelControlType::LookRight) ||
-                            g_controls.ButtonJustPressed(CarControls::WheelControlType::LookRightBottom);
+                            g_controls.ButtonJustPressed(CarControls::WheelControlType::LookRightBlindSpot);
 
     // who was first? If right held and left just pressed => toggle shoulder preference
     if (rightIn && leftJustPressed) {
@@ -459,11 +459,7 @@ void checkCameraButtons() {
     if (leftIn && rightIn) {
         CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(g_peripherals.LookBackRShoulder ? -180.0f : 180.0f);
     }
-    else if (g_controls.ButtonIn(CarControls::WheelControlType::LookTop)) {
-        CAM::SET_GAMEPLAY_CAM_RELATIVE_PITCH(0.0f, 1.0f);
-        CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(135.0f);
-    }
-    else if (g_controls.ButtonIn(CarControls::WheelControlType::LookLeftTop)) {
+    else if (g_controls.ButtonIn(CarControls::WheelControlType::LookLeftMirror)) {
         CAM::SET_GAMEPLAY_CAM_RELATIVE_PITCH(0.0f, 1.0f);
         CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(45.0f);
     }
@@ -471,11 +467,15 @@ void checkCameraButtons() {
         CAM::SET_GAMEPLAY_CAM_RELATIVE_PITCH(0.0f, 1.0f);
         CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(90.0f);
     }
-    else if (g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBottom)) {
+    else if (g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBlindSpot)) {
         PAD::SET_CONTROL_VALUE_NEXT_FRAME(0, ControlVehicleLookBehind, 1.0f); // Looking behind first.
         CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(-45.0f);
     }
-    else if (g_controls.ButtonIn(CarControls::WheelControlType::LookRightTop)) {
+    else if (g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBlindSpotPeak)) {
+        CAM::SET_GAMEPLAY_CAM_RELATIVE_PITCH(0.0f, 1.0f);
+        CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(135.0f);
+    }
+    else if (g_controls.ButtonIn(CarControls::WheelControlType::LookRightMirror)) {
         CAM::SET_GAMEPLAY_CAM_RELATIVE_PITCH(0.0f, 1.0f);
         CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(-45.0f);
     }
@@ -483,20 +483,20 @@ void checkCameraButtons() {
         CAM::SET_GAMEPLAY_CAM_RELATIVE_PITCH(0.0f, 1.0f);
         CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(-90.0f);
     }
-    else if (g_controls.ButtonIn(CarControls::WheelControlType::LookRightBottom)) {
+    else if (g_controls.ButtonIn(CarControls::WheelControlType::LookRightBlindSpot)) {
         CAM::SET_GAMEPLAY_CAM_RELATIVE_PITCH(0.0f, 1.0f);
         CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(-135.0f);
     }
 
     // If any left variant was released and right isn't held, or any right variant released and left isn't held -> reset heading.
-    bool leftReleased = g_controls.ButtonIn(CarControls::WheelControlType::LookTop) ||
-                        g_controls.ButtonReleased(CarControls::WheelControlType::LookLeftTop) ||
+    bool leftReleased = g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBlindSpotPeak) ||
+                        g_controls.ButtonReleased(CarControls::WheelControlType::LookLeftMirror) ||
                         g_controls.ButtonReleased(CarControls::WheelControlType::LookLeft) ||
-                        g_controls.ButtonReleased(CarControls::WheelControlType::LookLeftBottom);
+                        g_controls.ButtonReleased(CarControls::WheelControlType::LookLeftBlindSpot);
 
-    bool rightReleased = g_controls.ButtonReleased(CarControls::WheelControlType::LookRightTop) ||
+    bool rightReleased = g_controls.ButtonReleased(CarControls::WheelControlType::LookRightMirror) ||
                          g_controls.ButtonReleased(CarControls::WheelControlType::LookRight) ||
-                         g_controls.ButtonReleased(CarControls::WheelControlType::LookRightBottom);
+                         g_controls.ButtonReleased(CarControls::WheelControlType::LookRightBlindSpot);
 
     if ((leftReleased && !rightIn) || (rightReleased && !leftIn)) {
         CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(0.0f);
