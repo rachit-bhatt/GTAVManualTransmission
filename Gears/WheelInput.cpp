@@ -438,7 +438,7 @@ void checkCameraButtons() {
                    g_controls.ButtonIn(CarControls::WheelControlType::LookRight) ||
                    g_controls.ButtonIn(CarControls::WheelControlType::LookRightBlindSpot);
 
-    bool leftJustPressed = g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBlindSpotPeak) ||
+    bool leftJustPressed = g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeftBlindSpotPeak) ||
                            g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeftMirror) ||
                            g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeft) ||
                            g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeftBlindSpot);
@@ -489,7 +489,7 @@ void checkCameraButtons() {
     }
 
     // If any left variant was released and right isn't held, or any right variant released and left isn't held -> reset heading.
-    bool leftReleased = g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBlindSpotPeak) ||
+    bool leftReleased = g_controls.ButtonReleased(CarControls::WheelControlType::LookLeftBlindSpotPeak) ||
                         g_controls.ButtonReleased(CarControls::WheelControlType::LookLeftMirror) ||
                         g_controls.ButtonReleased(CarControls::WheelControlType::LookLeft) ||
                         g_controls.ButtonReleased(CarControls::WheelControlType::LookLeftBlindSpot);
