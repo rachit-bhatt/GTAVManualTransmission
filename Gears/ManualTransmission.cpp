@@ -112,11 +112,11 @@ int MT_GetManagedVehicle() {
     return g_playerVehicle;
 }
 
-bool MT_LookingTop() {
+bool MT_LookingLeftBlindSpotPeak() {
 	return g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBlindSpotPeak);
 }
 
-bool MT_LookingLeftTop() {
+bool MT_LookingLeftMirror() {
     return g_controls.ButtonIn(CarControls::WheelControlType::LookLeftMirror);
 }
 
@@ -124,7 +124,7 @@ bool MT_LookingLeft() {
     return g_controls.ButtonIn(CarControls::WheelControlType::LookLeft);
 }
 
-bool MT_LookingLeftBottom() {
+bool MT_LookingLeftBlindSpot() {
     return g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBlindSpot);
 }
 
@@ -135,14 +135,14 @@ bool MT_LookingBack() {
         g_controls.ButtonIn(CarControls::WheelControlType::LookRight);
 }
 
-bool MT_LookingRightBottom() {
-    return g_controls.ButtonIn(CarControls::WheelControlType::LookRightBlindSpot);
+bool MT_LookingRightMirror() {
+    return g_controls.ButtonIn(CarControls::WheelControlType::LookRightMirror);
 }
 
 bool MT_LookingRight() {
     return g_controls.ButtonIn(CarControls::WheelControlType::LookRight);
 }
 
-bool MT_LookingRightTop() {
-    return g_controls.ButtonIn(CarControls::WheelControlType::LookRightMirror);
+bool MT_LookingRightBlindSpot() {
+    return g_controls.ButtonIn(CarControls::WheelControlType::LookRightBlindSpot);
 }

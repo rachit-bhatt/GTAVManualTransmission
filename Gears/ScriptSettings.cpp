@@ -1034,37 +1034,37 @@ void ScriptSettings::parseSettingsWheel(CarControls *scriptControl) {
     scriptControl->WheelButton[GET_WT(Horn)] =
         parseWheelItem<int>(ini, "HORN", -1);
 
-    // [LOOK_TOP]
+    // [LOOK_LEFT_BLIND_SPOT_PEAK]
     scriptControl->WheelButton[GET_WT(LookLeftBlindSpotPeak)] =
-        parseWheelItem<int>(ini, "LOOK_TOP", -1);
+        parseWheelItem<int>(ini, "LOOK_LEFT_BLIND_SPOT_PEAK", -1);
 
-    // [LOOK_LEFT_TOP]
+    // [LOOK_LEFT_MIRROR]
     scriptControl->WheelButton[GET_WT(LookLeftMirror)] =
-        parseWheelItem<int>(ini, "LOOK_LEFT_TOP", -1);
+        parseWheelItem<int>(ini, "LOOK_LEFT_MIRROR", -1);
 
     // [LOOK_LEFT]
     scriptControl->WheelButton[GET_WT(LookLeft)] =
         parseWheelItem<int>(ini, "LOOK_LEFT", -1);
 
-    // [LOOK_LEFT_BOTTOM]
+    // [LOOK_LEFT_BLIND_SPOT]
     scriptControl->WheelButton[GET_WT(LookLeftBlindSpot)] =
-        parseWheelItem<int>(ini, "LOOK_LEFT_BOTTOM", -1);
+        parseWheelItem<int>(ini, "LOOK_LEFT_BLIND_SPOT", -1);
 
     // [LOOK_BACK]
     scriptControl->WheelButton[GET_WT(LookBack)] =
         parseWheelItem<int>(ini, "LOOK_BACK", -1);
 
-    // [LOOK_RIGHT_BOTTOM]
-    scriptControl->WheelButton[GET_WT(LookRightBlindSpot)] =
-        parseWheelItem<int>(ini, "LOOK_RIGHT_BOTTOM", -1);
+    // [LOOK_RIGHT_MIRROR]
+    scriptControl->WheelButton[GET_WT(LookRightMirror)] =
+        parseWheelItem<int>(ini, "LOOK_RIGHT_MIRROR", -1);
 
     // [LOOK_RIGHT]
     scriptControl->WheelButton[GET_WT(LookRight)] =
         parseWheelItem<int>(ini, "LOOK_RIGHT", -1);
 
-    // [LOOK_RIGHT_TOP]
-    scriptControl->WheelButton[GET_WT(LookRightMirror)] =
-        parseWheelItem<int>(ini, "LOOK_RIGHT_TOP", -1);
+    // [LOOK_RIGHT_BLIND_SPOT]
+    scriptControl->WheelButton[GET_WT(LookRightBlindSpot)] =
+        parseWheelItem<int>(ini, "LOOK_RIGHT_BLIND_SPOT", -1);
 
     // [CHANGE_CAMERA]
     scriptControl->WheelButton[GET_WT(Camera)] =
