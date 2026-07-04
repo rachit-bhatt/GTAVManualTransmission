@@ -83,7 +83,7 @@
       <Command>Prebuild.bat $(ProjectDir)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>PostBuild.bat $(ProjectDir)$(OutDir) "D:\Games\Steam\steamapps\common\Grand Theft Auto V" $(TargetFileName)</Command>
+      <Command>PostBuild.bat $(ProjectDir)$(OutDir) "E:\Games\Games\GTA Series\Grand Theft Auto V" $(TargetFileName)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
