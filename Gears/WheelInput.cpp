@@ -429,7 +429,7 @@ void checkCameraButtons() {
     }
 
     // Treat the new top/bottom buttons as variants of left/right for look logic.
-    bool leftIn = g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBlindSpotPeak) ||
+    bool leftIn = //g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBlindSpotPeak) ||
                   g_controls.ButtonIn(CarControls::WheelControlType::LookLeftMirror) ||
                   g_controls.ButtonIn(CarControls::WheelControlType::LookLeft) ||
                   g_controls.ButtonIn(CarControls::WheelControlType::LookLeftBlindSpot);
@@ -438,7 +438,7 @@ void checkCameraButtons() {
                    g_controls.ButtonIn(CarControls::WheelControlType::LookRight) ||
                    g_controls.ButtonIn(CarControls::WheelControlType::LookRightBlindSpot);
 
-    bool leftJustPressed = g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeftBlindSpotPeak) ||
+    bool leftJustPressed = //g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeftBlindSpotPeak) ||
                            g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeftMirror) ||
                            g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeft) ||
                            g_controls.ButtonJustPressed(CarControls::WheelControlType::LookLeftBlindSpot);
